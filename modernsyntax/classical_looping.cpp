@@ -9,9 +9,11 @@ g++ -o classical_looping -std=c++14 -pthread -g  -Wall -Wextra -Wpedantic -Werro
 class Tool {
 public:
   Tool(): aMember(0) { 
+    std::cout << "aMember" << std::endl;
     std::this_thread::sleep_for (std::chrono::milliseconds(500));
   };
   Tool(const Tool&) {
+    std::cout << "makes Tool" << std::endl;
     std::this_thread::sleep_for (std::chrono::milliseconds(500));
   }
   void print() const { std::cout << "tool" << std::endl; };
